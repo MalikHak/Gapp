@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "645325007849",
+    "firebase_url": "https://social-media-843fb.firebaseio.com",
+    "project_id": "social-media-843fb",
+    "storage_bucket": "social-media-843fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645325007849:android:cd5083f386899a83f2f978",
+        "android_client_info": {
+          "package_name": "com.auaf.gapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "645325007849-rm3opg9qkndlq96jhrg1ovh9id8hetcg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZDQzar6ex_T-1MxjAEKQUqTFYfeYZoW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "645325007849-rm3opg9qkndlq96jhrg1ovh9id8hetcg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
