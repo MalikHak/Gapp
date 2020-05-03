@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +20,7 @@ public class Signup_activity extends AppCompatActivity {
 
     EditText etmail,etpassword,etrepassword;
     Button btnsave;
+    TextView tvlogin;
     FirebaseAuth myauth;
 
 
@@ -65,7 +67,13 @@ public class Signup_activity extends AppCompatActivity {
                 }
             }
         });
-
+       /* tvlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(Signup_activity.this, Login.class);
+                startActivity(intent2);
+            }
+        });*/
 
     }
 }

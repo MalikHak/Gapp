@@ -15,7 +15,6 @@
         android:id="@+id/ivLogo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginLeft="50dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="120dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,9 +54,13 @@
 
     <TextView
         android:id="@+id/tvForgot"
-        android:layout_width="157dp"
+        android:layout_width="match_parent"
         android:layout_height="28dp"
-        android:text="Forget your password?"
+        android:text="Forget password?"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:gravity="right"
+        android:textColor="@color/projectcolor1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.87"
         app:layout_constraintStart_toStartOf="parent"

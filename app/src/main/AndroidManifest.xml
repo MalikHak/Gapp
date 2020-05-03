@@ -17,9 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
-
         </activity>
-        <activity android:name=".Signup_activity">
+        <activity android:name=".Signup_activity" android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".ForgotPassword">
         </activity>
