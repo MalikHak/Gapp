@@ -45,10 +45,14 @@ public class Signup_activity extends AppCompatActivity {
                      @Override
                      public void onComplete(@NonNull Task<AuthResult> task) {
 
-                         if(task.isSuccessful()) {
+                         if (task.isSuccessful()) {
 
-                           //  Intent intent = new Intent(Signup_activity.this,newactivity.class);
-                            // startActivity(intent);
+                             Intent intent = new Intent(Signup_activity.this, MainActivity.class);
+                             startActivity(intent);
+                             finish();
+                         } else {
+
+                             Toast.makeText(Signup_activity.this,"task was unsuccessful", Toast.LENGTH_SHORT).show();
                          }
                      }
                  });
