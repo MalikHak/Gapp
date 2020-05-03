@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <EditText
-        android:id="@+id/Etsingupemail"
+        android:id="@+id/Etsignupemail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="18dp"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Etsignupname" />
 
     <EditText
-        android:id="@+id/ETsinguppassword"
+        android:id="@+id/ETsignuppassword"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="18dp"
@@ -96,10 +96,10 @@
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Etsingupemail" />
+        app:layout_constraintTop_toBottomOf="@+id/Etsignupname" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/Etsignuprepasswrod"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="25dp"
@@ -112,10 +112,10 @@
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETsinguppassword" />
+        app:layout_constraintTop_toBottomOf="@+id/ETsignuppassword" />
 
     <Button
-        android:id="@+id/btns"
+        android:id="@+id/btnsave"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="25dp"
@@ -129,7 +129,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/Etsignuprepasswrod" />
 
     <TextView
         android:id="@+id/textView"
@@ -145,7 +145,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btns" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/Tvbacktosignin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
