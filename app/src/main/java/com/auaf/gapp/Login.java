@@ -31,6 +31,15 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
 
+
+        if (SessionManager.getInstance(Login.this).getLoggedIn()){
+
+            Intent intent=new Intent(Login.this,MainActivity.class);
+            startActivity(intent);
+            finish();
+
+
+        }
         GappAuth=FirebaseAuth.getInstance();
 
         etEmail=findViewById(R.id.etEmail);
@@ -49,6 +58,9 @@ public class Login extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
+
+                                    SessionManager.getInstance(Login.this).setLoggedIn(true);
+
                                     Intent intent=new Intent(Login.this,MainActivity.class);
                                     startActivity(intent);
                                     finish();
@@ -87,12 +99,14 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser currentUser = GappAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent=new Intent(Login.this,MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
+//        FirebaseUser currentUser = GappAuth.getCurrentUser();
+//        if(currentUser != null){
+//            Intent intent=new Intent(Login.this,MainActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
+
+
 
     }
 }
