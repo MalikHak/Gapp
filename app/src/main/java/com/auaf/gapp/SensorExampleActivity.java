@@ -8,6 +8,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class SensorExampleActivity extends AppCompatActivity implements SensorEv
         sensorManager= (SensorManager) getSystemService(SENSOR_SERVICE);
 
         lastUpdat=System.currentTimeMillis();
+        Log.d("Data", "onCreate: "+ System.currentTimeMillis());
 
 
 
@@ -62,6 +64,7 @@ public class SensorExampleActivity extends AppCompatActivity implements SensorEv
         float z=values[2];
 
 
+
         float accelationSquareRoot = (x * x + y * y + z * z)
                 / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
         long actualTime = event.timestamp;
@@ -71,7 +74,6 @@ public class SensorExampleActivity extends AppCompatActivity implements SensorEv
                 return;
             }
             lastUpdat = actualTime;
-
 
             Toast.makeText(this, "Device was shaked", Toast.LENGTH_SHORT).show();
 
