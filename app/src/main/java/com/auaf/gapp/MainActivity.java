@@ -32,10 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
         session=SessionManager.getInstance(MainActivity.this);
 
-
         etHighScore=findViewById(R.id.etHighScore);
         tvHighScore=findViewById(R.id.tvHighScore);
-        tvHighScore.setText("Your High score is  "+ session.getHighScore() );
+        tvHighScore.setText("Your High score is "+ session.getHighScore() );
 
 btnGetValue=findViewById(R.id.btnGetValue);
 
