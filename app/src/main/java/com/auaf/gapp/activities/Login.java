@@ -1,4 +1,4 @@
-package com.auaf.gapp;
+package com.auaf.gapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,11 +12,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.auaf.gapp.R;
+import com.auaf.gapp.utils.SessionManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
@@ -81,7 +82,7 @@ public class Login extends AppCompatActivity {
         tvForgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Login.this,ForgotPassword.class);
+                Intent intent=new Intent(Login.this, ForgotPassword.class);
                 startActivity(intent);
 
             }

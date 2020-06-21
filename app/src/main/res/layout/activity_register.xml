@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <Button
+        android:id="@+id/btnSignIn"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttons_style"
+        android:text="Sign In With Email"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSignInWithGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/gmailsigninn"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:textColor="@android:color/white"
+        android:text="Sign In With Gmail"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
+
+    <Button
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:id="@+id/btnSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/buttons_style"
+        android:text="Dont Have an account ?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+</androidx.constraintlayout.widget.ConstraintLayout>

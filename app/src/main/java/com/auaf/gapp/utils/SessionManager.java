@@ -1,4 +1,4 @@
-package com.auaf.gapp;
+package com.auaf.gapp.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

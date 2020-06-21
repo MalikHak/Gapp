@@ -6,8 +6,6 @@
     "storage_bucket": "social-media-843fb.appspot.com"
   },
   "client": [
-
-
     {
       "client_info": {
         "mobilesdk_app_id": "1:645325007849:android:cd5083f386899a83f2f978",
@@ -16,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "645325007849-c0cu0elro962qf9jknrlapr005rfe90b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.auaf.gapp",
+            "certificate_hash": "2d359df4b9b97ecdfcdd5d901d5c08b4fc11b392"
+          }
+        },
         {
           "client_id": "645325007849-rm3opg9qkndlq96jhrg1ovh9id8hetcg.apps.googleusercontent.com",
           "client_type": 3

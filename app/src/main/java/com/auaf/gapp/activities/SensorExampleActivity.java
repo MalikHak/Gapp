@@ -1,4 +1,4 @@
-package com.auaf.gapp;
+package com.auaf.gapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.auaf.gapp.R;
 
 public class SensorExampleActivity extends AppCompatActivity implements SensorEventListener {
     SensorManager sensorManager;
