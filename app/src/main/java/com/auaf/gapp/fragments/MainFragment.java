@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import com.auaf.gapp.R;
 
-import java.util.zip.Inflater;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -121,7 +119,7 @@ public class MainFragment extends Fragment {
             public MainViewHolder(@NonNull View itemView) {
                 super(itemView);
 
-                ivPhoto= itemView.findViewById(R.id.profile_image);
+                ivPhoto= itemView.findViewById(R.id.ivProfile);
                 tvName= itemView.findViewById(R.id.tvName);
                 tvUserPost=itemView.findViewById(R.id.tvPostUser);
             }

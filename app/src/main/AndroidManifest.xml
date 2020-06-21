@@ -12,21 +12,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activities.UploadUserProfile"></activity>
+        <activity android:name=".activities.RegisterActivity">
 
-        <activity android:name=".activities.MainActivity" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
-        <activity android:name=".activities.WebViewActivity"></activity>
-        <activity android:name=".activities.SensorExampleActivity"></activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".activities.Login"
+            android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-
+        <activity android:name=".activities.WebViewActivity" />
+        <activity android:name=".activities.SensorExampleActivity" />
+        <activity
+            android:name=".activities.Login"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activities.Signup_activity"
             android:theme="@style/AppTheme.NoActionBar" />

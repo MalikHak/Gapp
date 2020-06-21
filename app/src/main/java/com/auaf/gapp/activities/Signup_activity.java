@@ -50,7 +50,7 @@ public class Signup_activity extends AppCompatActivity {
 
                          if (task.isSuccessful()) {
 
-                             Intent intent = new Intent(Signup_activity.this, MainActivity.class);
+                             Intent intent = new Intent(Signup_activity.this, UploadUserProfile.class);
                              startActivity(intent);
                              finish();
                          } else {

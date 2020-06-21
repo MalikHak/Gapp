@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
 
                                     SessionManager.getInstance(Login.this).setLoggedIn(true);
 
-                                    Intent intent=new Intent(Login.this,MainActivity.class);
+                                    Intent intent=new Intent(Login.this,UploadUserProfile.class);
                                     startActivity(intent);
                                     finish();
                                 }
