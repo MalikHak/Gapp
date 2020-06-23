@@ -1,6 +1,7 @@
 package com.auaf.gapp.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.auaf.gapp.R;
+import com.auaf.gapp.activities.UploadUserProfile;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -30,6 +32,8 @@ public class MainFragment extends Fragment {
 
     MainAdpater objectAdapter;
     RecyclerView.LayoutManager manager;
+
+    CircleImageView ivProfileUser;
 
 
     public MainFragment() {
@@ -50,6 +54,19 @@ public class MainFragment extends Fragment {
         objectAdapter=new MainAdpater(getActivity(),names,userFeed,photos);
 
         manager=new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false);
+
+        ivProfileUser=viewMain.findViewById(R.id.ivUserProfile);
+
+        ivProfileUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(getActivity(), UploadUserProfile.class);
+                intent.putExtra("type","main");
+                startActivity(intent);
+
+            }
+        });
 
 
         rvMain.setLayoutManager(manager);
