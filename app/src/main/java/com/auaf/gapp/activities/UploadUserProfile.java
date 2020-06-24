@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,12 +17,17 @@ import com.auaf.gapp.models.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
 
 public class UploadUserProfile extends AppCompatActivity {
+
+    final String TAG = UploadUserProfile.class.getSimpleName();
 
     EditText etName,etAge,etLivingPlace,etJob;
     Switch swsingleOrMarried;
@@ -33,10 +39,9 @@ public class UploadUserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_user_profile);
 
-
-
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("Users");
+
 
         etAge=findViewById(R.id.etAge);
         etJob=findViewById(R.id.etJob);
@@ -44,6 +49,32 @@ public class UploadUserProfile extends AppCompatActivity {
         etLivingPlace=findViewById(R.id.etLivingPlace);
         swsingleOrMarried=findViewById(R.id.swMarriedOrNnot);
         btnUploadData=findViewById(R.id.btnUpload);
+
+        if (getIntent().getStringExtra("type")!=null){
+
+                    myRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            User userData = snapshot.getValue(User.class);
+
+                            etName.setText(userData.getName());
+                            etAge.setText(userData.getAge()+"");
+                            etJob.setText(userData.getJob());
+                            etLivingPlace.setText(userData.getPlace());
+                            swsingleOrMarried.setChecked(userData.isMarried());
+
+                        }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+        }
+
+
+
 
         btnUploadData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,4 +118,6 @@ public class UploadUserProfile extends AppCompatActivity {
 
 
     }
+
+
 }
