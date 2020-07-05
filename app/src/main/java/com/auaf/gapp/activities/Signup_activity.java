@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.auaf.gapp.R;
+import com.auaf.gapp.utils.SessionManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -51,6 +52,7 @@ public class Signup_activity extends AppCompatActivity {
                          if (task.isSuccessful()) {
 
                              Intent intent = new Intent(Signup_activity.this, UploadUserProfile.class);
+                             SessionManager.getInstance(Signup_activity.this).setIsFirstTime(true);
                              startActivity(intent);
                              finish();
                          } else {

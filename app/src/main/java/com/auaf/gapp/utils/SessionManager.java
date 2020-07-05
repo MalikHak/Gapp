@@ -15,6 +15,7 @@ public class SessionManager {
     private String HIGH_SCORE;
 
     private String IS_LOGGED_IN="IS_LOGGED_IN";
+    private String IS_FIRST_TIME ="IS_FIRST_TIME";
 
 
 
@@ -56,4 +57,14 @@ public class SessionManager {
     }
 
 
+
+    public void setIsFirstTime(boolean isFirstTime){
+
+        editor.putBoolean(IS_FIRST_TIME,isFirstTime);
+        editor.commit();
+    }
+
+    public boolean getIsFirstTime(){
+        return preferences.getBoolean(IS_FIRST_TIME,false);
+    }
 }

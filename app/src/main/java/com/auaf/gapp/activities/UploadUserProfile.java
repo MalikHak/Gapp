@@ -2,10 +2,20 @@ package com.auaf.gapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +33,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.ByteArrayOutputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Map;
 
 public class UploadUserProfile extends AppCompatActivity {
@@ -33,6 +46,21 @@ public class UploadUserProfile extends AppCompatActivity {
     Switch swsingleOrMarried;
     Button btnUploadData;
 
+    //Uploading Photo
+    Uri imageUri = null;
+    String permissionStorage = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+    String permissionCamera = Manifest.permission.CAMERA;
+
+    private static final int REQUEST_EXTERNAL_STORAGE = 1012;
+    private static final int REQUEST_CAMERA = 1013;
+    private static final int CODE_CHANGE_MY_PROFILE_PIC_GALLERY = 1002;
+    private static final int CODE_CHANGE_MY_PROFILE_PIC_CAMERA = 1003;
+    int SELECT_IMAGE_TYPE = 0;
+    int PROFILE_IMAGE_TYPE = 3;
+
+ //   private StorageReference storageReference;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +69,8 @@ public class UploadUserProfile extends AppCompatActivity {
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("Users");
+     //   storageReference = FirebaseStorage.getInstance().getReference();
+
 
 
         etAge=findViewById(R.id.etAge);
@@ -118,6 +148,12 @@ public class UploadUserProfile extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+
 
 
 }
