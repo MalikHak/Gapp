@@ -65,6 +65,13 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        btnnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(RegisterActivity.this,Signup_activity.class);
+                startActivity(intent);
+            }
+        });
 
         btnSignUpWithGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,8 +133,17 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void signin() {
-        Intent intent=new Intent(RegisterActivity.this, UploadUserProfile.class);
-        startActivity(intent);
+        if (!SessionManager.getInstance(RegisterActivity.this).getIsFirstTime()){
+
+            Intent intent=new Intent(RegisterActivity.this, UploadUserProfile.class);
+            SessionManager.getInstance(RegisterActivity.this).setIsFirstTime(true);
+            startActivity(intent);
+        }else {
+            Intent intent=new Intent(RegisterActivity.this, MainActivity.class);
+            startActivity(intent);
+
+        }
+
     }
 
 

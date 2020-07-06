@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".fragments.MainFragment">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        android:id="@+id/fbPostData"
+        android:layout_margin="16dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_home"
+        app:layout_constraintBottom_toBottomOf="@+id/rvMain"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivUserProfile"
         android:layout_width="56dp"
