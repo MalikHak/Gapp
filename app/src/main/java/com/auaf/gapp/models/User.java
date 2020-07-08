@@ -6,6 +6,7 @@ import java.util.Map;
 public class User {
 
     String uid;
+    String photo;
     String name;
     String place;
     String job;
@@ -16,13 +17,14 @@ public class User {
     }
 
 
-    public User(String uid,String name, String place, String job, int age, boolean isMarried) {
+    public User(String uid,String name, String place, String job, int age, boolean isMarried,String photo) {
         this.uid=uid;
         this.name = name;
         this.place = place;
         this.job = job;
         this.age = age;
         this.isMarried = isMarried;
+        this.photo=photo;
     }
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
@@ -32,8 +34,17 @@ public class User {
         result.put("job", job);
         result.put("age", age);
         result.put("isMarried", isMarried);
+        result.put("photo", photo);
 
         return result;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public String getUid() {

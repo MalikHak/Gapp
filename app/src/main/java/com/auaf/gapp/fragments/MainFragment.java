@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,15 +27,35 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.auaf.gapp.R;
+import com.auaf.gapp.activities.MainActivity;
 import com.auaf.gapp.activities.UploadUserProfile;
+import com.auaf.gapp.models.Post;
+import com.auaf.gapp.utils.SessionManager;
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class MainFragment extends Fragment {
+
+
+   List<Post> postList=new ArrayList<>();
 
 
     String names[] = {"Safiullah", "Ishaq", "Jaber", "Aqila", "Husna"};
@@ -47,8 +68,11 @@ public class MainFragment extends Fragment {
     MainAdpater objectAdapter;
     RecyclerView.LayoutManager manager;
     FloatingActionButton fbPostData;
+    TextView tvNameUser;
 
     CircleImageView ivProfileUser;
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    final DatabaseReference myRef = database.getReference("Posts");
 
 
     public MainFragment() {
@@ -66,13 +90,21 @@ public class MainFragment extends Fragment {
         rvMain = viewMain.findViewById(R.id.rvMain);
 
         fbPostData = viewMain.findViewById(R.id.fbPostData);
+        tvNameUser= viewMain.findViewById(R.id.idNameUser);
 
 
-        objectAdapter = new MainAdpater(getActivity(), names, userFeed, photos);
+        objectAdapter = new MainAdpater(getActivity(),postList);
 
         manager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
 
         ivProfileUser = viewMain.findViewById(R.id.ivUserProfile);
+
+
+        Log.d("data",SessionManager.getInstance(getActivity()).getPHOTO_USER());
+
+        Glide.with(getActivity()).load(SessionManager.getInstance(getActivity()).getPHOTO_USER()).into(ivProfileUser);
+
+        tvNameUser.setText(SessionManager.getInstance(getActivity()).getNameUser());
 
         ivProfileUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,27 +132,58 @@ public class MainFragment extends Fragment {
         });
 
 
+        getAllPosts();
+
+
         return viewMain;
 
+    }
+
+    private void getAllPosts() {
+
+
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if (postList!=null){
+                    postList.clear();
+
+
+                }
+                for (DataSnapshot childDataSnapshot : snapshot.getChildren()) {
+
+                    Post post = childDataSnapshot.getValue(Post.class);
+                    postList.add(post);
+
+                }
+
+                objectAdapter = new MainAdpater(getActivity(),postList);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 
     class MainAdpater extends RecyclerView.Adapter<MainAdpater.MainViewHolder> {
 
         Context context;
-        String[] names;
-        String[] feeds;
-        int[] photos;
+
+        List<Post> postList;
 
 
-        public MainAdpater(Context context, String[] names, String[] feeds, int[] photos) {
+        public MainAdpater(Context context, List<Post> postList) {
 
 
             this.context = context;
 
-            this.names = names;
-            this.feeds = feeds;
-            this.photos = photos;
+            this.postList =postList;
 
         }
 
@@ -139,15 +202,16 @@ public class MainFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
 
-            holder.tvName.setText(names[position]);
-            holder.tvUserPost.setText(feeds[position]);
-            holder.ivPhoto.setImageResource(photos[position]);
+            holder.tvName.setText(postList.get(position).getName());
+            holder.tvUserPost.setText(postList.get(position).getDescription());
+
+            Glide.with(context).load(postList.get(position).getPhoto()).into(holder.ivPhoto);
 
         }
 
         @Override
         public int getItemCount() {
-            return names.length;
+            return postList.size();
         }
 
         class MainViewHolder extends RecyclerView.ViewHolder {
@@ -186,8 +250,37 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                String name= SessionManager.getInstance(getActivity()).getNameUser();
+                String photo= SessionManager.getInstance(getActivity()).getPHOTO_USER();
                 String title= etTitlePost.getText().toString();
                 String description = etDescriptionPost.getText().toString();
+
+                Post newPost=new Post(uid,name,photo,title,description);
+                Map<String, Object> postValues = newPost.toMap();
+
+
+
+
+                myRef.push().setValue(postValues).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                        Toast.makeText(getActivity(), "Successfuly Post DATA", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getActivity(), "Failed Post DATA", Toast.LENGTH_SHORT).show();
+
+                        dialog.dismiss();
+
+                    }
+                });
+
+
 
 
             }
