@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         vpMainActivity=findViewById(R.id.vpMain);
         btnviewMainn=findViewById(R.id.bottom_navigation);
 

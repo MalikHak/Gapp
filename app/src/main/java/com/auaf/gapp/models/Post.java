@@ -3,7 +3,7 @@ package com.auaf.gapp.models;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Post {
+public class  Post {
 
     String uid;
     String name;

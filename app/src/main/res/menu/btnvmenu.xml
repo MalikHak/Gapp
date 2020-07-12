@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/navigationhome"
-        android:enabled="true"
-        app:showAsAction="ifRoom"
-        android:title="Main"
-        android:icon="@drawable/ic_home"/>
+<item
+    android:id="@+id/navigationhome"
+    android:enabled="true"
+    app:showAsAction="ifRoom"
+    android:title="Main"
+    android:icon="@drawable/ic_home"/>
 
-    <item
-        android:id="@+id/navigation_profile"
-        android:enabled="true"
-        app:showAsAction="ifRoom"
-        android:title="Profile"
-        android:icon="@drawable/ic_profile"/>
+<item
+    android:id="@+id/navigation_profile"
+    android:enabled="true"
+    app:showAsAction="ifRoom"
+    android:title="Profile"
+    android:icon="@drawable/ic_profile"/>
 
-    <item
-        android:id="@+id/navigation_friends"
-        android:enabled="true"
-app:showAsAction="ifRoom"
-        android:title="Friends"
-        android:icon="@drawable/ic_friends"/>
-    <item
-        android:id="@+id/navigation_settings"
-        android:enabled="true"
-        app:showAsAction="ifRoom"
-        android:title="Settings"
-        android:icon="@drawable/ic_settings"/>
+<item
+    android:id="@+id/navigation_friends"
+    android:enabled="true"
+    app:showAsAction="ifRoom"
+    android:title="Friends"
+    android:icon="@drawable/ic_friends"/>
+<item
+    android:id="@+id/navigation_settings"
+    android:enabled="true"
+    app:showAsAction="ifRoom"
+    android:title="Settings"
+    android:icon="@drawable/ic_settings"/>
 </menu>
