@@ -37,7 +37,7 @@ public class FriendsFragment extends Fragment {
     Toolbar toolbar;
     FriendsAdapter objAdapter;
     List<User> userList;
-//    DividerItemDecoration dividerItemDecoration
+//  DividerItemDecoration dividerItemDecoration
 
     public FriendsFragment() {
     }
