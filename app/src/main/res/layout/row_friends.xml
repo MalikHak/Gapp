@@ -31,7 +31,8 @@
                 android:id="@+id/img_friend"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/friend" />
+                android:src="@drawable/friend"
+                />
 
             <TextView
                 android:id="@+id/txt_friend"
